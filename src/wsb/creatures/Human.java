@@ -1,5 +1,7 @@
 package wsb.creatures;
 
+import java.util.Arrays;
+import java.util.Objects;
 import wsb.devices.Car;
 import wsb.devices.Phone;
 

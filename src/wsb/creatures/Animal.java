@@ -15,7 +15,7 @@ public class Animal implements Feedable, Comparable<Animal> {
     private static Double DEFAULT_FEED_WEIGHT = 1.0;
 
     public Animal(String species) {
-        System.out.println("we created new Animal");
+        System.out.println("we have created new animal");
         this.species = species;
 
         switch (species) {
@@ -46,22 +46,22 @@ public class Animal implements Feedable, Comparable<Animal> {
 
     public void feed(Double foodWeight) {
         if (weight == 0) {
-            System.out.println("too late, " + name + " is dead");
+            System.out.println("It's too late, " + name + " is dead");
         } else {
             weight += foodWeight;
-            System.out.println(name + " says thx for food");
+            System.out.println(name + " says thank you for this food");
         }
     }
 
     public void takeForAWalk() {
         if (weight == 0.0) {
-            System.out.println("you can't walk the street with dead animal you freak");
+            System.out.println("It's not ok to walk the street with dead animal!!! you freak");
         } else if (weight > 3.0) {
             --weight;
-            System.out.println(name + " says thx for a walk");
+            System.out.println(name + " says thank you for the walk");
         } else if (weight > 1.0) {
             --weight;
-            System.out.println(name + " says thx for a walk but I'm hungry");
+            System.out.println(name + " says thank you for a walk but I am hungry now");
         } else {
             weight = 0.0;
             System.out.println(name + " died");
@@ -73,7 +73,7 @@ public class Animal implements Feedable, Comparable<Animal> {
     }
 
     protected void kill() {
-        System.out.println("byeeeeeeeeeeeeee");
+        System.out.println("bye!!!");
         this.weight = 0.0;
     }
 

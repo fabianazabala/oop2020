@@ -9,6 +9,6 @@ public class FarmAnimal extends Animal implements Edible{
     @Override
     public void beEaten() throws Exception {
         this.kill();
-        System.out.println("that was yuammy");
+        System.out.println("that was tasty");
     }
 }

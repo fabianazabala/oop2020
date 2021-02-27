@@ -2,20 +2,22 @@ package wsb.devices;
 
 public class Phone extends Device {
     final Double screenSize;
+    final OperatingSystem operatingSystem;
 
-    public Phone(String producer, String model, Double screenSize) {
+    public Phone(String producer, String model, Double screenSize, OperatingSystem operatingSystem) {
         super(producer,model);
         this.screenSize = screenSize;
+        this.operatingSystem = operatingSystem;
     }
 
     @Override
     public void turnOn() {
-        System.out.println("phone is turned on");
+        System.out.println("The phone is turned on");
     }
 
 
     public void sell(){
-        System.out.println("already sold");
+        System.out.println("Its been already sold");
     }
 
     public void installAnApp(String name){

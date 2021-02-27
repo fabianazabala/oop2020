@@ -14,14 +14,13 @@ public abstract class Car extends Device implements Soldable, Comparable<Car> {
         super(producer, model);
         this.yearOfProduction = yearOfProduction;
         this.sizeOfAnEngine = sizeOfAnEngine;
-
     }
 
     abstract public void refuel();
 
     @Override
     public void turnOn() {
-        System.out.println("car is ready to go");
+        System.out.println("The car is ready to go");
     }
 
     public String toString() {
@@ -36,18 +35,18 @@ public abstract class Car extends Device implements Soldable, Comparable<Car> {
     @Override
     public void sell(Human buyer, Human seller, Double price) throws Exception {
         if(!seller.hasACar(this)){
-            throw new Exception("seller don't have a car");
+            throw new Exception("the seller do not have a car");
         }
         if(!buyer.hasAFreePlace()){
-            throw new Exception("bouer dont have a plase");
+            throw new Exception("bouer do not have a plase");
         }
         if(buyer.cash < price){
-            throw new Exception("afwfwaawfawf");
+            throw new Exception("not possible");
         }
         buyer.removeCar(this);
         seller.addCar(this);
         buyer.cash -= price;
         seller.cash += price;
-        System.out.println("great, transaction is done");
+        System.out.println("Cool, the transaction is done");
     }
 }
