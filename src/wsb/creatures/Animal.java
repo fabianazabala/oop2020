@@ -7,6 +7,7 @@ public class Animal implements Feedable, Comparable<Animal> {
     private Double weight;
     public String name;
     File pic;
+    final FoodType foodType;
 
     private static Double NEW_DOG_WEIGHT = 4.0;
     private static Double NEW_LION_WEIGHT = 39.2;
@@ -14,7 +15,8 @@ public class Animal implements Feedable, Comparable<Animal> {
 
     private static Double DEFAULT_FEED_WEIGHT = 1.0;
 
-    public Animal(String species) {
+    public Animal(String species, FoodType foodType) {
+        this.foodType = foodType;
         System.out.println("we have created new animal");
         this.species = species;
 
@@ -34,14 +36,22 @@ public class Animal implements Feedable, Comparable<Animal> {
         }
     }
 
-    public Animal(String species, Double weight) {
+    public Animal(String species, Double weight, FoodType foodType) {
         this.weight = weight;
         this.species = species;
+        this.foodType = foodType;
     }
 
 
     public void feed() {
-        feed(DEFAULT_FEED_WEIGHT);
+        String message;
+        message = switch (foodType){
+            case all -> "50% mass of food will be build into body mass";
+            case meat -> "70% mass of food will be build into body mass";
+            case crops -> "30% mass of food will be build into body mass";
+        };
+
+        //feed(DEFAULT_FEED_WEIGHT);
     }
 
     public void feed(Double foodWeight) {
@@ -84,5 +94,10 @@ public class Animal implements Feedable, Comparable<Animal> {
     @Override
     public int compareTo(Animal o) {
         return this.species.compareTo(o.species);
+    }
+
+    enum FoodType{
+        meat, crops, all;
+        private String foodToBodyRatio;
     }
 }
