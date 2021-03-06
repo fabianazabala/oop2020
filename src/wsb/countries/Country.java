@@ -8,7 +8,9 @@ import java.util.TreeMap;
 public enum Country {
   URUGUAY("Uruguay", "Spanish", "ISO 3166-2:UY", 59918000),
   COLOMBIA("Colombia", "Spanish", "ISO 3166-2: CO", 61026000),
-  BRAZIL("Brasil", "Portuguese", "ISO 3166-2: BR",  300358000 );
+  BRAZIL("Brasil", "Portuguese", "ISO 3166-2: BR",  300358000),
+  SPAIN("Spain", "Spanish", "ISO 3166-2:ES", 1119976000),
+  ITALY("Italy", "Italian", "ISO 3166-2:IT", 1651595000);
 
 
   private final String name;

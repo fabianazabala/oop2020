@@ -1,5 +1,8 @@
 package wsb;
 
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 import wsb.countries.CapitalCities;
 import wsb.countries.Country;
@@ -34,9 +37,20 @@ public class Main {
 
         System.out.println(trucks);
 
+        HashMap<Country, Double> area = new HashMap<>();
+        area.put(Country.ITALY, 301338.0);
+        area.put(Country.SPAIN, 487736.0);
+        area.put(Country.BRAZIL, 2637468.0);
+        area.put(Country.COLOMBIA, 987654.0);
+        area.put(Country.URUGUAY, 201223.0);
 
+        Country largestCountry = area.entrySet().stream()
+            .max(Comparator.comparingDouble(Map.Entry::getValue))
+            .get().getKey();
 
-
+        Country smallestCountry = area.entrySet().stream()
+            .min(Comparator.comparingDouble(Map.Entry::getValue))
+            .get().getKey();
 
     }
 }
