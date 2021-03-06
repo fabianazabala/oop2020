@@ -2,12 +2,18 @@ package wsb;
 
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.IntStream;
 import wsb.countries.CapitalCities;
 import wsb.countries.Country;
 import wsb.devices.Car;
+import wsb.devices.Device;
 import wsb.devices.DieselCar;
+import wsb.devices.OperatingSystem;
+import wsb.devices.Phone;
 
 public class Main {
     public static void main(String[] args) {
@@ -52,5 +58,43 @@ public class Main {
             .min(Comparator.comparingDouble(Map.Entry::getValue))
             .get().getKey();
 
+        System.out.println(largestCountry + " - " + smallestCountry);
+
+        /* Create a HashMap with String producer as key and list of devices as value.
+        Add a few objects into the map.
+            Find all devices produced by Ford and Siemens.
+
+         */
+        Phone amazing = new Phone("Siemens", "amazing", 3.0, OperatingSystem.WindowsMobile);
+        Phone s65 = new Phone("Siemens", "s65", 3.0, OperatingSystem.WindowsMobile);
+        Car escape = new DieselCar("Ford", "Escape", 20220, 13.0);
+        Car flex = new DieselCar("Ford", "Flex", 20220, 13.0);
+
+        HashMap<String, List<Device>> producers = new HashMap<>();
+        producers.put("Siemens", List.of(amazing, s65));
+        producers.put("Ford", List.of(escape, flex));
+
+        System.out.println("Siemens devices: " + producers.get("Siemens"));
+        System.out.println("Ford devices: " + producers.get("Ford"));
+
+        Map<Integer, String> hashMapExample = new HashMap<>();
+
+        IntStream.range(0, 1000)
+            .forEach(i -> hashMapExample.put(i, "entry"));
+
+        System.out.println(hashMapExample.size());
+
+        Map<Integer, String> concurrentHashMapExample = new ConcurrentHashMap<>();
+
+        IntStream.range(0, 1000)
+            .parallel()
+            .forEach(i -> concurrentHashMapExample.put(i, "entry"));
+
+        System.out.println(concurrentHashMapExample.size());
+
+        malibu.turnOn();
+        System.out.println(malibu.isRunning);
+        malibu.stopCar();
+        System.out.println(malibu.isRunning);
     }
 }

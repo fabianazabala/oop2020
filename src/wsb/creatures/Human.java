@@ -127,16 +127,4 @@ class Personality{
         this.iq = iq;
         this.nerd = nerd;
     }
-
-    /* TASK 7
-    Create a private inner class engine inside a car.
-    Move turnOn() method to the new class.
-    Add fields horsePower and volume and milage.
-    Add Engine engine field to a car and create an engine in the car constructor.
-    Add isRunning boolean field to a car.
-        Add startACar() method to a car which will run turnOn() method on engine.
-        TurnOn() method should print some funny text and change isRunnig value.
-    Add stopACar() method as analogy.
-
-     */
 }
