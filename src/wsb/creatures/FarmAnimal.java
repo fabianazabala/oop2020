@@ -11,4 +11,9 @@ public class FarmAnimal extends Animal implements Edible{
         this.kill();
         System.out.println("that was tasty");
     }
+
+    @Override
+    public void feed() {
+        System.out.println("eating");
+    }
 }

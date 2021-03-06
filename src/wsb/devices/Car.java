@@ -1,5 +1,6 @@
 package wsb.devices;
 
+import java.util.HashMap;
 import wsb.creatures.Human;
 import wsb.Soldable;
 
@@ -17,6 +18,8 @@ public abstract class Car extends Device implements Soldable, Comparable<Car> {
     }
 
     abstract public void refuel();
+
+    HashMap<String, Car>
 
     @Override
     public void turnOn() {

@@ -17,21 +17,17 @@ public class Animal implements Feedable, Comparable<Animal> {
 
     public Animal(String species, FoodType foodType) {
         this.foodType = foodType;
-        System.out.println("we have created new animal");
         this.species = species;
 
         switch (species) {
-            case "dog": {
+            case "dog" -> {
                 weight = NEW_DOG_WEIGHT;
-                break;
             }
-            case "lion": {
+            case "lion" -> {
                 weight = NEW_LION_WEIGHT;
-                break;
             }
-            default: {
+            default -> {
                 weight = NEW_OTHER_ANIMAL_WEIGHT;
-                break;
             }
         }
     }
@@ -43,15 +39,26 @@ public class Animal implements Feedable, Comparable<Animal> {
     }
 
 
-    public void feed() {
-        String message;
+    public void feed(FoodType foodType) {
+        /*String message;
         message = switch (foodType){
             case all -> "50% mass of food will be build into body mass";
             case meat -> "70% mass of food will be build into body mass";
             case crops -> "30% mass of food will be build into body mass";
         };
 
-        //feed(DEFAULT_FEED_WEIGHT);
+         */
+        switch (species){
+            case "dog" -> feed(FoodType.all);
+            case "lion" -> feed(FoodType.meat);
+            default -> feed(FoodType.crops);
+        }
+
+    }
+
+    @Override
+    public void feed() {
+        System.out.println("Fed already");
     }
 
     public void feed(Double foodWeight) {
@@ -96,8 +103,4 @@ public class Animal implements Feedable, Comparable<Animal> {
         return this.species.compareTo(o.species);
     }
 
-    enum FoodType{
-        meat, crops, all;
-        private String foodToBodyRatio;
-    }
 }
