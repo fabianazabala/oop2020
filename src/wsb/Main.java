@@ -104,21 +104,21 @@ public class Main {
     Animal elephant = new Animal("elephant", "Mammal", FoodType.crops, 6500.0);
     Animal cow = new FarmAnimal("cow", "mammal", 720.0);
     Animal pigglet = new FarmAnimal("pigglet", "farm animal", 20.0);
-    Animal boy = new Human("Richard", 22.5);
-    Animal baby = new Human("Shakira", 8.0);
+    Animal richard = new Human("Richard", 22.5);
+    Animal shakira = new Human("Shakira", 8.0);
     Animal bird = new Pet("turpial", "Bird", FoodType.crops, 0.7);
 
     List<Animal> animals = new ArrayList<>();
     animals.add(elephant);
-    animals.add(boy);
+    animals.add(richard);
     animals.add(bird);
     animals.add(pigglet);
     animals.add(cow);
-    animals.add(baby);
-
+    animals.add(shakira);
 
     Collections.sort(animals);
 
+    animals.sort(Comparator.comparing(Animal::getWeight));
     animals.forEach(System.out::println);
 
 

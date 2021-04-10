@@ -82,7 +82,11 @@ public class Animal implements Feedable, Comparable<Animal> {
         }
     }
 
-    Double getWeight() {
+    public String getName() {
+        return name;
+    }
+
+    public Double getWeight() {
         return weight;
     }
 
