@@ -1,5 +1,7 @@
 package wsb;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +11,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.IntStream;
 import wsb.countries.CapitalCities;
 import wsb.countries.Country;
+import wsb.creatures.Animal;
+import wsb.creatures.FarmAnimal;
+import wsb.creatures.FoodType;
+import wsb.creatures.Human;
+import wsb.creatures.Pet;
 import wsb.devices.Car;
 import wsb.devices.Device;
 import wsb.devices.DieselCar;
@@ -16,8 +23,9 @@ import wsb.devices.OperatingSystem;
 import wsb.devices.Phone;
 
 public class Main {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
+        /*
         System.out.println(Country.COLOMBIA.convertGDPtoPLN());
 
         CapitalCities capitalCities = new CapitalCities();
@@ -60,11 +68,6 @@ public class Main {
 
         System.out.println(largestCountry + " - " + smallestCountry);
 
-        /* Create a HashMap with String producer as key and list of devices as value.
-        Add a few objects into the map.
-            Find all devices produced by Ford and Siemens.
-
-         */
         Phone amazing = new Phone("Siemens", "amazing", 3.0, OperatingSystem.WindowsMobile);
         Phone s65 = new Phone("Siemens", "s65", 3.0, OperatingSystem.WindowsMobile);
         Car escape = new DieselCar("Ford", "Escape", 20220, 13.0);
@@ -96,5 +99,28 @@ public class Main {
         System.out.println(malibu.isRunning);
         malibu.stopCar();
         System.out.println(malibu.isRunning);
-    }
+        */
+
+    Animal elephant = new Animal("elephant", "Mammal", FoodType.crops, 6500.0);
+    Animal cow = new FarmAnimal("cow", "mammal", 720.0);
+    Animal pigglet = new FarmAnimal("pigglet", "farm animal", 20.0);
+    Animal boy = new Human("Richard", 22.5);
+    Animal baby = new Human("Shakira", 8.0);
+    Animal bird = new Pet("turpial", "Bird", FoodType.crops, 0.7);
+
+    List<Animal> animals = new ArrayList<>();
+    animals.add(elephant);
+    animals.add(boy);
+    animals.add(bird);
+    animals.add(pigglet);
+    animals.add(cow);
+    animals.add(baby);
+
+
+    Collections.sort(animals);
+
+    animals.forEach(System.out::println);
+
+
+  }
 }

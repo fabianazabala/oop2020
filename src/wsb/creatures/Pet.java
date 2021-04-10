@@ -1,7 +1,7 @@
 package wsb.creatures;
 
 public class Pet extends Animal {
-    public Pet(String species) {
-        super(species, FoodType.meat);
+    public Pet(String name, String species, FoodType crops, double weight) {
+        super(name, species, FoodType.meat, weight);
     }
 }

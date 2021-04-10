@@ -2,8 +2,8 @@ package wsb.creatures;
 
 public class FarmAnimal extends Animal implements Edible{
 
-    public FarmAnimal(String species) {
-        super(species, FoodType.all);
+    public FarmAnimal(String name, String species, double weight) {
+        super(name, species, FoodType.all, weight);
     }
 
     @Override

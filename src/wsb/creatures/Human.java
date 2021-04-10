@@ -5,7 +5,6 @@ import wsb.devices.Phone;
 
 public class Human extends Animal {
     public String firstName;
-    public String lastName;
     public Pet pet;
     public Phone mobile;
     public Car[] garage;
@@ -20,22 +19,9 @@ public class Human extends Animal {
     private static final int DEFAULT_GARAGE_SIZE = 3;
     private static Double DEFAULT_FEED_WEIGHT = 1.5;
 
-    public Human(Integer farmSize, Integer garageSize) {
-        super("homo sapiens", FoodType.all);
-        this.farm = new Animal[farmSize];
-        this.garage = new Car[garageSize];
-    }
+    public Human(String name, double weight) {
+        super(name,"homo sapiens", FoodType.all, weight);
 
-    public Human(Integer farmSize) {
-        super("homo sapiens", FoodType.all);
-        this.farm = new Animal[farmSize];
-        this.garage = new Car[DEFAULT_GARAGE_SIZE];
-    }
-
-    public Human() {
-        super("homo sapiens", FoodType.all);
-        this.farm = new Animal[DEFAULT_FARM_SIZE];
-        this.garage = new Car[DEFAULT_GARAGE_SIZE];
     }
 
     public Double getSalary() {
@@ -50,9 +36,7 @@ public class Human extends Animal {
         throw new Exception("don't do this freak");
     }
 
-    public String toString() {
-        return this.firstName + " " + this.lastName + " I'm a human";
-    }
+    public String toString() {return this.name;}
 
     public void feed() {
         System.out.println("I'm a human I will use fork and knife");
@@ -87,8 +71,8 @@ public class Human extends Animal {
     }
 
     public boolean hasAFreePlace() {
-        for (int i = 0; i < garage.length; i++) {
-            if (garage[i] == null) {
+        for (Car car : garage) {
+            if (car == null) {
                 return true;
             }
         }
@@ -112,19 +96,4 @@ public class Human extends Animal {
         }
     }
 }
-class Personality{
 
-    private final boolean senseOfHumor;
-    private final boolean romantic;
-    private final boolean goodPerson;
-    private final double iq;
-    private final boolean nerd;
-
-    public Personality(boolean senseOfHumor, boolean romantic, boolean goodPerson, double iq, boolean nerd) {
-        this.senseOfHumor = senseOfHumor;
-        this.romantic = romantic;
-        this.goodPerson = goodPerson;
-        this.iq = iq;
-        this.nerd = nerd;
-    }
-}

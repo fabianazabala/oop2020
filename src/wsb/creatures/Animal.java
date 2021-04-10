@@ -15,9 +15,13 @@ public class Animal implements Feedable, Comparable<Animal> {
 
     private static Double DEFAULT_FEED_WEIGHT = 1.0;
 
-    public Animal(String species, FoodType foodType) {
+    public Animal(String name, String species,
+                  FoodType foodType,
+                  Double weight) {
+        this.name = name;
         this.foodType = foodType;
         this.species = species;
+        this.weight = weight;
 
         switch (species) {
             case "dog" -> {
@@ -31,13 +35,6 @@ public class Animal implements Feedable, Comparable<Animal> {
             }
         }
     }
-
-    public Animal(String species, Double weight, FoodType foodType) {
-        this.weight = weight;
-        this.species = species;
-        this.foodType = foodType;
-    }
-
 
     public void feed(FoodType foodType) {
         /*String message;
@@ -94,9 +91,7 @@ public class Animal implements Feedable, Comparable<Animal> {
         this.weight = 0.0;
     }
 
-    public String toString() {
-        return "Hi I'm an Animal " + this.species + " " + this.name;
-    }
+    public String toString() {return this.name;}
 
     @Override
     public int compareTo(Animal o) {
