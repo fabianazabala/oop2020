@@ -1,9 +1,9 @@
 package wsb.threads;
 
-public class Scorpion implements Runnable{
+public class Scorpion extends ClassExtendedByScorpion implements Runnable{
 
   @Override
   public void run() {
-
+    finishHim();
   }
 }

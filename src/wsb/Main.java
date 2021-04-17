@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.IntStream;
+import wsb.annot.ObjectToSQLConverter;
 import wsb.countries.CapitalCities;
 import wsb.countries.Country;
 import wsb.creatures.Animal;
@@ -121,6 +122,16 @@ public class Main {
     animals.sort(Comparator.comparing(Animal::getWeight));
     animals.forEach(System.out::println);
 
+    ObjectToSQLConverter converter = new ObjectToSQLConverter();
+
+    System.out.println("My sql converter: ");
+    try {
+      System.out.println(converter.insert(richard));
+      System.out.println(converter.insert(pigglet));
+      System.out.println(converter.insert(cow));
+    } catch (IllegalAccessException e) {
+      e.printStackTrace();
+    }
 
   }
 }

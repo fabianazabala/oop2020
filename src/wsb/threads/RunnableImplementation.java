@@ -7,4 +7,16 @@ public class RunnableImplementation implements Runnable {
       System.out.println(i);
     }
   }
+
+  public static void main(String[] args) {
+    String message = "Hello";
+    print(message);
+    message += "World!";
+    print(message);
+  }
+
+  public static void print(String message){
+    System.out.println(message);
+    message += " ";
+  }
 }

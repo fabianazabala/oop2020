@@ -7,5 +7,14 @@ public class ThreadRunner {
 
     firstThread.start();
     secondThread.start();
+
+    Thread scorpion = new Thread(new Scorpion());
+    Thread subZero = new Thread(new SubZero());
+
+    scorpion.start();
+    subZero.start();
+
+    // scorpion won
+
   }
 }
